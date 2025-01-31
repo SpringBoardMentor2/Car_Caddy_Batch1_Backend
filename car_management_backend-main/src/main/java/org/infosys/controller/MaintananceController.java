@@ -34,7 +34,7 @@ public class MaintananceController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> saveMaintenanceRecord(@RequestBody Maintenance record) {
+    public ResponseEntity<?> saveMaintenanceRecord(@Valid @RequestBody Maintenance record) {
         try {
             // Log the incoming maintenance record
             System.out.println("Received record: " + record.toString());
