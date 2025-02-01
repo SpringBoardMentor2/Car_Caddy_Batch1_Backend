@@ -2,6 +2,10 @@ package org.infosys.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.validation.constraints.NotNull;
@@ -11,6 +15,8 @@ import jakarta.validation.constraints.Size;
 @Entity
 @Table(name = "maintenance")
 public class Maintenance {
+	
+	public Maintenance() {}
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long maintenanceId;
@@ -24,7 +30,8 @@ public class Maintenance {
     @Size(min = 3, max = 50, message = "Maintenance type must be between 3 and 50 characters.")
     @Column(length = 50)
     private String maintenanceType;
-
+   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
     @Positive
