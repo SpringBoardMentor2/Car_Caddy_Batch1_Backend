@@ -30,8 +30,7 @@ public class Maintenance {
     @Size(min = 3, max = 50, message = "Maintenance type must be between 3 and 50 characters.")
     @Column(length = 50)
     private String maintenanceType;
-   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+   	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate date;
 
     @Positive

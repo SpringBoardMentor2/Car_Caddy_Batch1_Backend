@@ -65,8 +65,6 @@ public class MaintenanceService {
       
         System.out.println("Maintenance notification sent for car: " + car.getRegistrationNumber());
     }
-    
-
 
     public List<Maintenance> getAllMaintenance() {
         return maintenanceRepository.findAll();
@@ -105,6 +103,7 @@ public class MaintenanceService {
         if (!maintenanceRepository.existsById(record.getMaintenanceId())) {
             throw new InvalidEntityException("Cannot update record. Maintenance ID " + record.getMaintenanceId() + " not found.");
         }
+        record.setDate(LocalDate.now());
         maintenanceRepository.save(record); // Save the updated record
     }
 

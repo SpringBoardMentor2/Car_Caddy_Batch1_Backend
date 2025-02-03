@@ -20,5 +20,5 @@ public interface CarService {
 	
 	public List<Car> filtering() throws InvalidEntityException;
 
-
+    List<Long> getAllCarIds();
 }
