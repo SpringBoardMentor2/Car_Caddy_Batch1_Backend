@@ -3,6 +3,7 @@ package org.infosys.service;
 
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.infosys.exception.InvalidEntityException;
 import org.infosys.model.Car;
@@ -64,6 +65,12 @@ public class CarServiceImpl implements CarService {
 	    }
 	    return cars;
 	}
-	
+
+	@Override
+	public List<Long> getAllCarIds() {
+		return repo.findAll().stream()
+				.map(Car::getCarId)
+				.collect(Collectors.toList());
+	}
 	
 }

@@ -33,6 +33,11 @@ public class CarController {
 	@Autowired
 	private EmailService emailService;
 
+	@GetMapping("/cars/ids")
+	public List<Long> getAllCarIds() {
+		return carService.getAllCarIds();
+	}
+
 	// Fetch car by ID
 	@GetMapping("getCar/id/{carId}")
 	public ResponseEntity<?> getCar(@PathVariable Long carId) {
